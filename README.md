@@ -13,6 +13,42 @@ Aprenderás qué es una base de datos, qué es SQL, como se conceptualiza una ba
 PostgreSQL es una potente base de datos relacional de código abierto que es ampliamente utilizada en la industria.
 Conocerás por qué usar PostgreSQL, sus ventajas, cómo instalar la herramienta, cómo conectarte a la base de datos utilizando el sistema gestor de base de datos pgAdmin4, así como crear tablas y realizar consultas para añadir (INSERT INTO), borrar (DELETE) y actualizar (UPDATE) información en la base de datos.
 
+#### Insertar datos (INSERT INTO)
+```sql
+INSERT INTO nombre_tabla (columna1, columna2, columna3, ...)
+VALUES (valor1, valor2, valor3, ...);
+
+/* EJEMPLO: */
+INSERT INTO senseis (nombre, edad, correo)
+VALUES ('César', 35, 'cesar@correo.com');
+```
+
+#### Borrar datos (DELETE)
+```sql
+DELETE FROM nombre_tabla
+WHERE condición;
+
+/* EJEMPLO: */
+DELETE FROM senseis
+WHERE id = 3;
+```
+> [!CAUTION]
+> Es importante incluir el WHERE para eliminar un único registro en específico. Si omites el WHERE, se eliminarán todos los registros de la tabla.
+
+#### Actualizar datos (UPDATE)
+```sql
+UPDATE nombre_tabla
+SET columna1 = valor1, columna2 = valor2, ...
+WHERE condición;
+
+/* EJEMPLO: */
+UPDATE senseis
+SET edad = 39, correo = 'cesar@uncorreo.com'
+WHERE id = 3;
+```
+> [!CAUTION]
+> Es importante incluir el WHERE para actualizar un único registro en específico. Si omites el WHERE, se actualizarán todos los registros de la tabla.
+
 #### Recursos
 - [Descarga de PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 - [Tipos de Datos en PostgreSQL](https://www.postgresql.org/docs/current/datatype.html)
