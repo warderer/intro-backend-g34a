@@ -70,6 +70,52 @@ Aprenderás a realizar consultas SELECT en una sola tabla utilizando instruccion
 ### 4. Subqueries & Joins
 Conocerás cómo hacer consultas a más de una tabla mediante subqueries y joins. Estas técnicas son indispensables para combinar datos de múltiples tablas y obtener resultados complejos en una base de datos relacional.
 
+Un **Join** es una operación que permite combinar filas de dos o más tablas basándose en una condición común, generalmente a través de claves foráneas. Existen varios tipos de Joins en PostgreSQL, como el **INNER JOIN**, que devuelve solo las filas coincidentes en ambas tablas, o el **LEFT JOIN**, que devuelve todas las filas de la tabla izquierda junto con las filas coincidentes de la tabla derecha.
+
+Por otro lado, las **Subquerys** son consultas anidadas dentro de una consulta principal. Estas pueden devolver un valor único o múltiples filas y columnas, y se utilizan para realizar operaciones más complejas, como filtrar resultados o calcular valores intermedios antes de ejecutar la consulta principal. Pueden aparecer en cláusulas como SELECT, FROM, WHERE o HAVING.
+
+Ambas herramientas son ampliamente usadas para escribir consultas SQL avanzadas que optimicen la extracción y manipulación de datos, proporcionando flexibilidad y control sobre cómo se accede y combina la información, para lograr operaciones más precisas y combinando resultados de una o más tablas.
+
+#### Sintaxis de INNER JOIN
+```sql
+SELECT columnas 
+FROM tabla1
+INNER JOIN tabla2
+ON tabla1.columna_PK = tabla2.columna_FK;
+
+/* EJEMPLO: */
+SELECT employees.name, departments.department_name 
+FROM employees 
+INNER JOIN departments 
+ON employees.department_id = departments.id;
+```
+
+#### Sintaxis de LEFT JOIN
+```sql
+SELECT columnas 
+FROM tabla1
+LEFT JOIN tabla2
+ON tabla1.columna_PK = tabla2.columna_FK;
+
+/* EJEMPLO: */
+SELECT employees.name, departments.department_name 
+FROM employees 
+LEFT JOIN departments 
+ON employees.department_id = departments.id;
+```
+
+#### Sintaxis de Subquery
+```sql
+SELECT columnas 
+FROM tabla1
+WHERE columna = (SELECT valor FROM tabla2 WHERE condición);
+
+/* EJEMPLO: */
+SELECT name, salary 
+FROM employees
+WHERE salary > (SELECT AVG(salary) FROM employees);
+```
+
 ### 5. RestFul APIs
 Estudiarás la teoría general de una API REST, sus buenas prácticas, seguido de un ejemplo práctico usando Express JS. Las APIs RESTful son un estándar en la industria para la creación de servicios web que permiten la comunicación entre diferentes sistemas.
 
