@@ -1,6 +1,9 @@
 // #1 Llamar a la biblioteca de express (importarla)
 const express = require('express')
 
+// Hago una variable para el puerto, para que sea más fácil de cambiar. Si no hay un puerto definido en las variables de entorno, se usa el 3000
+const PORT = process.env.PORT || 3000
+
 // #2 Crear una instancia de express
 const app = express()
 
@@ -16,6 +19,6 @@ app.get('/', function (req, res) {
 })
 
 // #4 Levantar el servidor escuchando en un puerto determinado
-app.listen(3000, () => {
-  console.log('Server running on port 3000 🚀')
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT} 🚀`)
 })
