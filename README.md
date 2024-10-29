@@ -119,6 +119,39 @@ WHERE salary > (SELECT AVG(salary) FROM employees);
 ## 5. RestFul APIs
 Estudiarás la teoría general de una API REST, sus buenas prácticas, seguido de un ejemplo práctico usando Express JS. Las APIs RESTful son un estándar en la industria para la creación de servicios web que permiten la comunicación entre diferentes sistemas.
 
+### Buenas prácticas en API REST
+Para construir una buena API REST que sea fácil de entender, usar y mantener, se recomienda tomar en cuenta las siguientes buenas prácticas:
+
+#### 5.1. Uso de los Verbos HTTP Correctos
+  - **GET** para obtener recursos.
+  - **POST** para crear recursos.
+  - **PUT** para actualizar un recurso existente.
+  - **DELETE** para eliminar un recurso.
+  - **PATCH** para actualizar parcialmente un recurso.
+
+#### 5.2. Uso Apropiado de los Códigos de Estado HTTP
+Los códigos de estado indican al cliente si la solicitud fue exitosa o si hubo algún error, los más comunes:
+  - **200 OK** para solicitudes exitosas.
+  - **201 Created** cuando se crea un nuevo recurso.
+  - **204 No Content** cuando la respuesta no tiene cuerpo (por ejemplo, tras un DELETE exitoso).
+  - **400 Bad Request** para solicitudes mal formadas.
+  - **401 Unauthorized** cuando no se proporcionan una credenciales de autenticación válidas.
+  - **404 Not Found** cuando el recurso no existe.
+  - **500 Internal Server Error** para errores del servidor.
+
+#### 5.3. URLs Semánticas y Claras
+  - **Utiliza URLs claras y que representen recursos:** Por ejemplo, /api/users para acceder a usuarios y /api/users/{id} para un usuario en específico.
+  - **Evita usar verbos en los endpoints:** En su lugar, utiliza sustantivos que representen recursos: /createUser no es RESTful; /users con un verbo POST sí lo es.
+
+#### 5.4. Versionado de la API
+Versiona tu API para facilitar la compatibilidad y la evolución de la misma.
+Por ejemplo: **/api/v1/**users
+Esto permite lanzar nuevas versiones sin afectar las anteriores, facilitando la transición a nuevas funcionalidades y evitando interrupciones en el servicio.
+
+#### 5. Paginación, Filtrado y Ordenamiento
+  - Para listas grandes de recursos, es buena idea implementar paginación para reducir el peso de las respuestas. Puedes utilizar parámetros como **?page=1&limit=10**.
+  - Permite también filtrar y ordenar resultados para hacer la API más flexible. Ejemplo: **?tipo='perro'&edad=4**.
+
 ## 6. Introducción a Knex JS
 Explorarás las diferencias entre SQL Driver, Query Builder y ORM, además de recibir una introducción a la librería Knex JS. También aprenderás cómo conectarte a una base de datos en Express con Knex JS para realizar migraciones y poblar la base de datos. Knex JS es una herramienta flexible y potente para gestionar bases de datos en aplicaciones Node.js.
 
