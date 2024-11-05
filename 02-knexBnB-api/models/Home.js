@@ -16,11 +16,18 @@ const create = (bodyHome) => {
     .returning(['house_id', 'title', 'description', 'guest', 'address', 'rental_price', 'active', 'created_at']) // ¿Qué datos quiero que me regrese?
 }
 // READ
+const findAll = () => {
+  return knex
+    .select('*')
+    .from('homes')
+    .where('active', true)
+}
 
 // UPDATE
 
 // DELETE
 
 module.exports = {
-  create
+  create,
+  findAll
 }
