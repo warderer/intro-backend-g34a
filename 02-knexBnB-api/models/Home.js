@@ -32,11 +32,19 @@ const findOne = (houseId) => {
 }
 
 // UPDATE
+const update = (houseId, bodyToUpdate) => {
+  return knex
+    .update(bodyToUpdate) // ¿Qué datos voy a actualizar?
+    .from('homes') // ¿En qué tabla?
+    .where('house_id', houseId) // ¿Dónde?
+    .returning('*') // ¿Qué datos quiero que me regrese?
+}
 
 // DELETE
 
 module.exports = {
   create,
   findAll,
-  findOne
+  findOne,
+  update
 }
