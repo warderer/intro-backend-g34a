@@ -1,6 +1,8 @@
 // #1 Importar Express
 const express = require('express')
 
+const homeRoutes = require('./routes/homeRoutes')
+
 const PORT = process.env.PORT || 3000
 
 // #2 Crear una instancia de Express
@@ -10,6 +12,7 @@ const app = express()
 app.use(express.json())
 
 // #4 Definir las rutas de la aplicación
+app.use('/api/v1', homeRoutes)
 
 // #5 Iniciar el servidor de Express
 app.listen(PORT, () => {
