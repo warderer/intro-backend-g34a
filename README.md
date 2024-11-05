@@ -220,6 +220,18 @@ knex migrate:status
 ## 7. API con MVC
 Aprenderás la teoría general de MVC (Model-View-Controller) y cómo implementar una API con estos principios, enfocándote en la creación de un CRUD (Create, Read, Update, Delete). El patrón MVC es una metodología ampliamente adoptada para estructurar aplicaciones de manera modular y mantenible.
 
+Datos de ejemplo para hacer el CREATE (insertar)
+```json
+{
+  "title": "La Casa Blanca",
+  "description": "Una casita muy presidencial",
+  "guest": 200,
+  "address": "123 Main Street",
+  "rental_price": 150000,
+  "fk_user": 1
+}
+```
+
 ### Recursos Complementarios
 - [Documentación de Postgres](https://www.postgresql.org/docs/)
 - [Documentación de Knex](https://knexjs.org/guide/)
